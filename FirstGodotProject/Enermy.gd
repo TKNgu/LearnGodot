@@ -34,6 +34,10 @@ func move_to(current, to, step):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if position.x < targetX:
+		rotation_degrees += 360 * delta
+	else:
+		rotation_degrees -= 360 * delta
 	position.x = move_to(position.x, targetX, speed * delta)
 	
 	if position.x == targetX:
